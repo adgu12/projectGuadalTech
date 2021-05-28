@@ -1,3 +1,4 @@
+// Modelo sobre el objeto que vamos a trabajar
 export class Becario {
     constructor(
         public id: string,

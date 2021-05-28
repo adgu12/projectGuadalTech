@@ -9,6 +9,7 @@ import { Becario } from '../components/list-becarios/becario'
 export class BecariosService {
 
     private url: string = 'https://guadaltech-fullstack.herokuapp.com/api/becarios/';
+    private urlUpdate: string = 'https://guadaltech-fullstack.herokuapp.com/api/becarios/replaceOrCreate'
 
     constructor(
         private http: HttpClient
@@ -21,5 +22,9 @@ export class BecariosService {
     public deleteBecarios(id: string): Observable<any> {
         const url = `${this.url}${id}`;
         return this.http.delete(url);
+    }
+
+    public replaceOrCreate(data: any): Observable<any> {
+        return this.http.post<any>(this.urlUpdate, data);
     }
 }
